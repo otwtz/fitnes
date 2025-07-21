@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import '../../main.dart';
+import '../webview_screen.dart';
 
 class SettingsTab extends StatelessWidget {
   @override
@@ -61,6 +62,24 @@ class SettingsTab extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                 textStyle: GoogleFonts.montserrat(fontSize: 18, fontWeight: FontWeight.w600),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              ),
+            ),
+            const SizedBox(height: 40),
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton.icon(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => WebviewScreen()),
+                  );
+                },
+                icon: const Icon(Icons.web),
+                label: Text('Open WebView', style: GoogleFonts.montserrat(fontWeight: FontWeight.w600)),
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(color: isDark ? Colors.white : Colors.black),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                ),
               ),
             ),
           ],
